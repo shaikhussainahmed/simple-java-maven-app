@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.9.0'
+            image 'maven:3.9.7'
             args '-v /root/.m2:/root/.m2'
         }
     }
@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                ech0 'This is my Maven file'
             }
         }
         stage('Test') {
